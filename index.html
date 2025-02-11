@@ -38,18 +38,7 @@
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
         .counter {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: red;
-            color: white;
-            border-radius: 50%;
-            width: 25px;
-            height: 25px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: none;
         }
         .summary {
             font-size: 20px;
@@ -81,6 +70,9 @@
     <div class="pos-container">
         <h1>Pares ni Nanay Calculator</h1>
         <div class="item-grid">
+            <button class="item-btn" onclick="addItem(101, 1)">Add On 1 (₱1) <span id="count-101" class="counter">0</span></button>
+            <button class="item-btn" onclick="addItem(102, 5)">Add On 2 (₱5) <span id="count-102" class="counter">0</span></button>
+            <button class="item-btn" onclick="addItem(103, 10)">Add On 3 (₱10) <span id="count-103" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(1, 10)">Marlboro (₱10) <span id="count-1" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(2, 10)">Winston (₱10) <span id="count-2" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(3, 8)">Camel (₱8) <span id="count-3" class="counter">0</span></button>
@@ -89,7 +81,7 @@
             <button class="item-btn" onclick="addItem(6, 20)">Sting (₱20) <span id="count-6" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(7, 20)">Cobra (₱20) <span id="count-7" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(8, 10)">Egg (₱10) <span id="count-8" class="counter">0</span></button>
-            <button class="item-btn" onclick="addItem(9, 45)">Rice (₱10) <span id="count-9" class="counter">0</span></button>
+            <button class="item-btn" onclick="addItem(9, 10)">Rice (₱10) <span id="count-9" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(10, 55)">Pares (₱55) <span id="count-10" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(11, 55)">Lechon Pares (₱55) <span id="count-11" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(12, 45)">Mami (₱45) <span id="count-12" class="counter">0</span></button>
@@ -111,15 +103,32 @@
     <script>
         let totalCount = 0;
         let totalAmount = 0;
-        let itemCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0 , 11: 0, 12: 0 };
-        let itemPrices = { 1: 10, 2: 10, 3: 8, 4: 20, 5: 25, 6: 35, 7: 20, 8: 10, 9: 50, 10: 55, 11: 55, 12: 45 };
+        let itemCounts = { 101: 0, 102: 0, 103: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0 , 11: 0, 12: 0 };
+        let itemPrices = { 101: 5, 102: 10, 103: 10, 1: 10, 2: 10, 3: 8, 4: 20, 5: 25, 6: 35, 7: 20, 8: 10, 9: 10, 10: 55, 11: 55, 12: 45 };
 
         function addItem(itemId, price) {
             itemCounts[itemId]++;
             totalCount++;
             totalAmount += price;
-            document.getElementById(`count-${itemId}`).innerText = itemCounts[itemId];
-            // document.getElementById("total-count").innerText = totalCount;
+
+            let counterElement = document.getElementById(`count-${itemId}`);
+            counterElement.innerText = itemCounts[itemId];
+
+            // Show counter only if value is more than zero
+            if (itemCounts[itemId] > 0) {
+                counterElement.style.display = "flex";
+                counterElement.style.position = "absolute";
+                counterElement.style.background = "red";
+                counterElement.style.top = "5px";
+                counterElement.style.right = "5px";
+                counterElement.style.color = "white";
+                counterElement.style.borderRadius = "50%";
+                counterElement.style.width = "25px";
+                counterElement.style.height = "25px";
+                counterElement.style.fontSize = "14px";
+                counterElement.style.alignItems = "center";
+                counterElement.style.justifyContent = "center"; 
+            }
             document.getElementById("total-amount").innerText = totalAmount;
         }
 
