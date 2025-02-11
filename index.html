@@ -80,7 +80,7 @@
             <button class="item-btn" onclick="addItem(5, 25)">Mt. Dew (₱25) <span id="count-5" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(6, 25)">Sting (₱25) <span id="count-6" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(7, 20)">Cobra (₱20) <span id="count-7" class="counter">0</span></button>
-            <button class="item-btn" onclick="addItem(8, 10)">Egg (₱10) <span id="count-8" class="counter">0</span></button>
+            <button class="item-btn" onclick="addItem(8, 15)">Egg (₱15) <span id="count-8" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(9, 10)">Rice (₱10) <span id="count-9" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(10, 55)">Pares (₱55) <span id="count-10" class="counter">0</span></button>
             <button class="item-btn" onclick="addItem(11, 55)">Lechon Pares (₱55) <span id="count-11" class="counter">0</span></button>
@@ -104,7 +104,7 @@
         let totalCount = 0;
         let totalAmount = 0;
         let itemCounts = { 101: 0, 102: 0, 103: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0 , 11: 0, 12: 0 };
-        let itemPrices = { 101: 5, 102: 10, 103: 10, 1: 10, 2: 10, 3: 8, 4: 25, 5: 25, 6: 25, 7: 20, 8: 10, 9: 10, 10: 55, 11: 55, 12: 45 };
+        let itemPrices = { 101: 5, 102: 10, 103: 10, 1: 10, 2: 10, 3: 8, 4: 25, 5: 25, 6: 25, 7: 20, 8: 15, 9: 10, 10: 55, 11: 55, 12: 45 };
 
         function addItem(itemId, price) {
             itemCounts[itemId]++;
